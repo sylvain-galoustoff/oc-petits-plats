@@ -1,0 +1,15 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* styles.css */
+* {
+  -webkit-appearance: none; /* Safari et Chrome */
+  -moz-appearance: none; /* Firefox */
+  appearance: none;
+}
+
+.site-header {
+  background-image: url('../assets/img/banniere.jpg');
+}
+
