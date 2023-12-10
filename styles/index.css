@@ -586,13 +586,29 @@ video {
   left: 0px;
 }
 
+.top-0 {
+  top: 0px;
+}
+
 .top-3 {
   top: 0.75rem;
+}
+
+.z-10 {
+  z-index: 10;
 }
 
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.mb-12 {
+  margin-bottom: 3rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
 }
 
 .flex {
@@ -603,8 +619,28 @@ video {
   height: 667px;
 }
 
+.h-\[72px\] {
+  height: 72px;
+}
+
 .h-full {
   height: 100%;
+}
+
+.h-\[50px\] {
+  height: 50px;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-\[50px\] {
+  width: 50px;
+}
+
+.max-w-\[207px\] {
+  max-width: 207px;
 }
 
 .max-w-\[954px\] {
@@ -619,16 +655,67 @@ video {
   justify-content: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
+.rounded-\[11px\] {
+  border-radius: 11px;
+}
+
+.rounded-\[10px\] {
+  border-radius: 10px;
+}
+
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(27 27 27 / var(--tw-bg-opacity));
+}
+
+.pl-\[35px\] {
+  padding-left: 35px;
+}
+
+.pr-\[10px\] {
+  padding-right: 10px;
+}
+
 .pt-12 {
   padding-top: 3rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 /* styles.css */
 
 :root {
   --primary: #FFD15B;
+  --black: #1B1B1B;
   --title-font: 'Anton', sans-serif;
   --regular-font: 'Manrope', sans-serif;
+  font-size: 16px;
 }
 
 * {
@@ -637,6 +724,10 @@ video {
   -moz-appearance: none;
   /* Firefox */
   appearance: none;
+}
+
+body {
+  font-family: var(--regular-font);
 }
 
 h1 {

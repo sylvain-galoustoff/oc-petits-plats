@@ -34,22 +34,44 @@
       <div
         class="container mx-auto pt-12 h-full flex justify-center items-center relative"
       >
-        <div class="absolute left-0 top-3">
+        <div class="absolute left-0 top-3 max-w-[207px]">
           <img src="./assets/img/logo.png" alt="Logo les petits plats" />
         </div>
         <div class="max-w-[954px]">
-          <h1>
+          <h1 class="text-center mb-8">
             CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN, SIMPLES ET
             DÉLICIEUSES
           </h1>
-          <div class="relative" id="search-engine">
-            <label for="search-recipe">
+          <div
+            class="relative h-[72px] flex items-center justify-between pl-[35px] pr-[10px]"
+            id="search-wrapper"
+          >
+            <label class="relative z-10" for="search-recipe">
               Rechercher une recette, un ingrédient, ...
             </label>
-            <input type="search" name="search-recipe" id="search-recipe" />
+            <div
+              class="relative z-10 bg-black text-white w-[50px] h-[50px] flex justify-center items-center rounded-[10px]"
+            >
+              <ion-icon name="search-sharp" class="text-2xl"></ion-icon>
+            </div>
+            <input
+              type="search"
+              class="absolute top-0 left-0 w-full h-[72px] rounded-[11px]"
+              name="search-recipe"
+              id="search-recipe"
+            />
           </div>
         </div>
       </div>
     </header>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>

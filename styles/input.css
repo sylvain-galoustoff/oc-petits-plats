@@ -5,14 +5,20 @@
 /* styles.css */
 :root {
   --primary: #FFD15B;
+  --black: #1B1B1B;
   --title-font: 'Anton', sans-serif;
   --regular-font: 'Manrope', sans-serif;
+  font-size: 16px;
 }
 
 * {
   -webkit-appearance: none; /* Safari et Chrome */
   -moz-appearance: none; /* Firefox */
   appearance: none;
+}
+
+body {
+  font-family: var(--regular-font);
 }
 
 h1 {
