@@ -3,13 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles/index.css" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicons/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicons/favicon-16x16.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/favicons/favicon-16x16.png"
+    />
     <title>Les petits plats</title>
   </head>
   <body>
-    <header class="site-header h-80 border-2 border-red-400"></header>
+    <header class="site-header h-[667px]">
+      <div
+        class="container mx-auto pt-12 h-full flex justify-center items-center relative"
+      >
+        <div class="absolute left-0 top-3">
+          <img src="./assets/img/logo.png" alt="Logo les petits plats" />
+        </div>
+        <div class="max-w-[954px]">
+          <h1>
+            CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN, SIMPLES ET
+            DÉLICIEUSES
+          </h1>
+          <div class="relative" id="search-engine">
+            <label for="search-recipe">
+              Rechercher une recette, un ingrédient, ...
+            </label>
+            <input type="search" name="search-recipe" id="search-recipe" />
+          </div>
+        </div>
+      </div>
+    </header>
   </body>
 </html>

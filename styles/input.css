@@ -3,13 +3,28 @@
 @import 'tailwindcss/utilities';
 
 /* styles.css */
+:root {
+  --primary: #FFD15B;
+  --title-font: 'Anton', sans-serif;
+  --regular-font: 'Manrope', sans-serif;
+}
+
 * {
   -webkit-appearance: none; /* Safari et Chrome */
   -moz-appearance: none; /* Firefox */
   appearance: none;
 }
 
+h1 {
+  font-family: var(--title-font);
+  color: var(--primary);
+  font-size: 44px;
+}
+
 .site-header {
   background-image: url('../assets/img/banniere.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 

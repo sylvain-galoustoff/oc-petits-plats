@@ -540,20 +540,96 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.h-80 {
-  height: 20rem;
+.container {
+  width: 100%;
 }
 
-.border-2 {
-  border-width: 2px;
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
 }
 
-.border-red-400 {
-  --tw-border-opacity: 1;
-  border-color: rgb(248 113 113 / var(--tw-border-opacity));
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.left-0 {
+  left: 0px;
+}
+
+.top-3 {
+  top: 0.75rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.h-\[667px\] {
+  height: 667px;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.max-w-\[954px\] {
+  max-width: 954px;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.pt-12 {
+  padding-top: 3rem;
 }
 
 /* styles.css */
+
+:root {
+  --primary: #FFD15B;
+  --title-font: 'Anton', sans-serif;
+  --regular-font: 'Manrope', sans-serif;
+}
 
 * {
   -webkit-appearance: none;
@@ -563,7 +639,16 @@ video {
   appearance: none;
 }
 
+h1 {
+  font-family: var(--title-font);
+  color: var(--primary);
+  font-size: 44px;
+}
+
 .site-header {
   background-image: url('../assets/img/banniere.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 

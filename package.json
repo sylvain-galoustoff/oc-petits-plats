@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm-run-all -p watch syncbrowser",
+    "watch": "npx tailwindcss -i ./styles/input.css -o ./styles/index.css --watch",
+    "syncbrowser": "browser-sync start --server --files 'styles/index.css, *.html'"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.55.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^3.1.0",
     "prettier-plugin-tailwindcss": "^0.5.9",
     "tailwindcss": "^3.3.6"
