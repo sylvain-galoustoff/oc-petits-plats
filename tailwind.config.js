@@ -5,7 +5,12 @@ export const theme = {
     colors: {
       primary: "#FFD15B",
       black: "#1B1B1B",
-      white: "#fff"
+      white: "#fff",
+      grey: "#EDEDED",
+      lightgrey: "#C6C6C6"
+    },
+    fontFamily: {
+      custom: ['Manrope', 'sans-serif'],
     },
   },
 };

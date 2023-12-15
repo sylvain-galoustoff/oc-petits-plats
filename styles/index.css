@@ -598,17 +598,71 @@ video {
   z-index: 10;
 }
 
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.my-11 {
+  margin-top: 2.75rem;
+  margin-bottom: 2.75rem;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
+.mb-16 {
+  margin-bottom: 4rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-7 {
+  margin-bottom: 1.75rem;
 }
 
 .mb-8 {
   margin-bottom: 2rem;
 }
 
+.ml-auto {
+  margin-left: auto;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
+.block {
+  display: block;
+}
+
 .flex {
   display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.h-\[253px\] {
+  height: 253px;
+}
+
+.h-\[36px\] {
+  height: 36px;
 }
 
 .h-\[50px\] {
@@ -623,8 +677,16 @@ video {
   height: 72px;
 }
 
+.h-auto {
+  height: auto;
+}
+
 .h-full {
   height: 100%;
+}
+
+.w-\[195px\] {
+  width: 195px;
 }
 
 .w-\[50px\] {
@@ -643,8 +705,24 @@ video {
   max-width: 954px;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .items-center {
   align-items: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
 }
 
 .justify-center {
@@ -655,6 +733,30 @@ video {
   justify-content: space-between;
 }
 
+.gap-16 {
+  gap: 4rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.gap-12 {
+  gap: 3rem;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .rounded-\[10px\] {
   border-radius: 10px;
 }
@@ -663,9 +765,75 @@ video {
   border-radius: 11px;
 }
 
+.border {
+  border-width: 1px;
+}
+
+.border-lightgrey {
+  --tw-border-opacity: 1;
+  border-color: rgb(198 198 198 / var(--tw-border-opacity));
+}
+
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(27 27 27 / var(--tw-bg-opacity));
+}
+
+.bg-grey {
+  --tw-bg-opacity: 1;
+  background-color: rgb(237 237 237 / var(--tw-bg-opacity));
+}
+
+.bg-primary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 209 91 / var(--tw-bg-opacity));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-2\.5 {
+  padding: 0.625rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.py-2\.5 {
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
 }
 
 .pl-\[35px\] {
@@ -689,6 +857,15 @@ video {
   line-height: 2rem;
 }
 
+.font-medium {
+  font-weight: 500;
+}
+
+.text-lightgrey {
+  --tw-text-opacity: 1;
+  color: rgb(198 198 198 / var(--tw-text-opacity));
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -699,6 +876,7 @@ video {
 :root {
   --primary: #FFD15B;
   --black: #1B1B1B;
+  --grey: #7A7A7A;
   --title-font: 'Anton', sans-serif;
   --regular-font: 'Manrope', sans-serif;
   font-size: 16px;
@@ -722,10 +900,56 @@ h1 {
   font-size: 44px;
 }
 
+h2 {
+  font-family: var(--title-font);
+  color: var(--black);
+  font-size: 18px;
+}
+
+h3 {
+  color: var(--grey);
+  font-size: 18px;
+}
+
 .site-header {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url('../assets/img/banniere.jpg'), lightgray 50%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.dropdown {
+  height: 54px;
+}
+
+.dropdown.active {
+  max-height: 300px;
+  height: auto;
+}
+
+.dropdown .data-list {
+  height: 0;
+}
+
+.dropdown.active .data-list {
+  height: 210px;
+}
+
+#recipes-count {
+  font-family: var(--title-font);
+}
+
+.ingredient-qte {
+  color: var(--grey);
+}
+
+.hover\:bg-primary:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 209 91 / var(--tw-bg-opacity));
+}
+
+.focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
