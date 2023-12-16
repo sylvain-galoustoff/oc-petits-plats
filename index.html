@@ -222,29 +222,20 @@
     <!-- End search terms-->
 
     <div id="recipes" class="container mx-auto my-11 grid grid-cols-3 gap-12">
-      <article class="bg-white rounded-[11px] h-full overflow-hidden">
-        <div
-          class="recipe-thumbnail h-[253px] overflow-hidden flex justify-center items-center mb-8"
-        >
-          <img
-            class="block w-full h-auto"
-            src="./assets/img/placeholder.png"
-            alt="Limonade de Coco"
-          />
-        </div>
-        <h2 class="px-6 mb-7">Chargement...</h2>
-        <h3 class="px-6 mb-4 label">RECETTE</h3>
-        <p class="px-6 mb-8 description">Chargement...</p>
-        <h3 class="px-6 mb-4 label">INGREDIENTS</h3>
-        <div class="ingredients-list grid grid-cols-2 px-6 mb-16 gap-6">
-          <div class="ingredient">
-            <p class="ingredient-name">Cargement...</p>
+      <template>
+        <article class="bg-white rounded-[11px] h-full overflow-hidden">
+          <div
+            class="recipe-thumbnail h-[253px] overflow-hidden flex justify-center items-center mb-8"
+          >
+            <img class="block w-full h-auto recipe-img" />
           </div>
-          <div class="ingredient">
-            <p class="ingredient-name">Chargement...</p>
-          </div>
-        </div>
-      </article>
+          <h2 class="px-6 mb-7 recipe-title">Chargement...</h2>
+          <h3 class="px-6 mb-4 label">RECETTE</h3>
+          <p class="px-6 mb-8 recipe-description">Chargement...</p>
+          <h3 class="px-6 mb-4 label">INGREDIENTS</h3>
+          <div class="ingredients-list grid grid-cols-2 px-6 mb-16 gap-6"></div>
+        </article>
+      </template>
     </div>
     <!-- end recipes grid -->
 

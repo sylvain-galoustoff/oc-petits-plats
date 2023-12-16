@@ -30,7 +30,7 @@ export default function Card({ image, name, description, ingredients }) {
 
   let $recette = document.createElement("p");
   $recette = addClassNamesFromString($recette, "px-6 mb-8");
-  $recette.classList.add("description");
+  $recette.classList.add("recipe-description");
   $recette.innerText = description;
 
   let $h3Ingedients = document.createElement("h3");

@@ -943,7 +943,7 @@ h3 {
   font-family: var(--title-font);
 }
 
-.description {
+.recipe-description {
   font-size: 14px;
   height: 220px;
   overflow-y: auto;
