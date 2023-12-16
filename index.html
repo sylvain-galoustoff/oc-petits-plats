@@ -67,119 +67,53 @@
 
     <div id="toolbar" class="container mx-auto mt-5 flex gap-16 items-center">
       <div
-        class="dropdown bg-white rounded-[11px] w-[195px] overflow-hidden cursor-pointer"
+        class="dropdown bg-white rounded-[11px] w-[195px] cursor-pointer relative active"
       >
         <label
-          class="dropdown-header flex items-center justify-between p-4 font-medium"
+          class="dropdown-header flex items-center justify-between p-4 h-[65px] font-medium cursor-pointer relative z-10"
           for="ingredient-search"
         >
-          Ingrédients <ion-icon name="chevron-down-sharp"></ion-icon>
+          Ingrédients
+          <ion-icon
+            class="dropdown-chevron"
+            name="chevron-down-sharp"
+          ></ion-icon>
         </label>
-        <div
-          class="dropdown-search mb-2 mx-4 px-2 relative h-[36px] flex justify-end items-center"
-        >
-          <input
-            type="text"
-            name="ingredient-search"
-            id="ingredient-search"
-            class="border border-lightgrey p-2.5 absolute top-0 left-0 w-full h-full focus:outline-none"
-          />
-          <ion-icon name="search-sharp" class="text-lightgrey"></ion-icon>
-        </div>
-        <div class="data-list overflow-hidden">
-          <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
-            Jus de citron
-          </p>
-          <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
-            Glaçons
-          </p>
-          <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
-            Tomates
-          </p>
-          <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
-            Poivron rouge
-          </p>
-          <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
-            Thon en miette
-          </p>
-          <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
-            Oeufs
-          </p>
-        </div>
-      </div>
 
-      <div
-        class="dropdown bg-white rounded-[11px] w-[195px] overflow-hidden cursor-pointer"
-      >
-        <label
-          class="dropdown-header flex items-center justify-between p-4 font-medium"
-          for="appareils-search"
-        >
-          Appareils <ion-icon name="chevron-down-sharp"></ion-icon>
-        </label>
         <div
-          class="dropdown-search mb-2 mx-4 px-2 relative h-[36px] flex justify-end items-center"
+          class="dropdown-search-wrapper overflow-hidden rounded-[11px] bg-white absolute z-[9] top-0 left-0 w-full pt-[65px]"
         >
-          <input
-            type="text"
-            name="appareils-search"
-            id="appareils-search"
-            class="border border-lightgrey p-2.5 absolute top-0 left-0 w-full h-full focus:outline-none"
-          />
-          <ion-icon name="search-sharp" class="text-lightgrey"></ion-icon>
-        </div>
-        <div class="data-list overflow-hidden">
-          <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
-            Item
-          </p>
-          <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
-            Item
-          </p>
-          <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
-            Item
-          </p>
-        </div>
-      </div>
-
-      <div
-        class="dropdown bg-white rounded-[11px] w-[195px] overflow-hidden cursor-pointer"
-      >
-        <label
-          class="dropdown-header flex items-center justify-between p-4 font-medium"
-          for="ustensiles-search"
-        >
-          Ustensiles <ion-icon name="chevron-down-sharp"></ion-icon>
-        </label>
-        <div
-          class="dropdown-search mb-2 mx-4 px-2 relative h-[36px] flex justify-end items-center"
-        >
-          <input
-            type="text"
-            name="ustensiles-search"
-            id="ustensiles-search"
-            class="border border-lightgrey p-2.5 absolute top-0 left-0 w-full h-full focus:outline-none"
-          />
-          <ion-icon name="search-sharp" class="text-lightgrey"></ion-icon>
-        </div>
-        <div class="data-list overflow-hidden">
-          <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
-            Jus de citron
-          </p>
-          <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
-            Glaçons
-          </p>
-          <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
-            Tomates
-          </p>
-          <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
-            Poivron rouge
-          </p>
-          <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
-            Thon en miette
-          </p>
-          <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
-            Oeufs
-          </p>
+          <div
+            class="dropdown-search mb-2 mx-4 px-2 relative h-[36px] flex justify-end items-center"
+          >
+            <input
+              type="text"
+              name="ingredient-search"
+              id="ingredient-search"
+              class="border border-lightgrey p-2.5 absolute top-0 left-0 w-full h-full focus:outline-none"
+            />
+            <ion-icon name="search-sharp" class="text-lightgrey"></ion-icon>
+          </div>
+          <div class="data-list overflow-hidden">
+            <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
+              Jus de citron
+            </p>
+            <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
+              Glaçons
+            </p>
+            <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
+              Tomates
+            </p>
+            <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
+              Poivron rouge
+            </p>
+            <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
+              Thon en miette
+            </p>
+            <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
+              Oeufs
+            </p>
+          </div>
         </div>
       </div>
 

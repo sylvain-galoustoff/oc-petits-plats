@@ -598,6 +598,10 @@ video {
   z-index: 10;
 }
 
+.z-\[9\] {
+  z-index: 9;
+}
+
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
@@ -667,6 +671,10 @@ video {
 
 .h-\[50px\] {
   height: 50px;
+}
+
+.h-\[65px\] {
+  height: 65px;
 }
 
 .h-\[667px\] {
@@ -848,6 +856,10 @@ video {
   padding-top: 3rem;
 }
 
+.pt-\[65px\] {
+  padding-top: 65px;
+}
+
 .text-center {
   text-align: center;
 }
@@ -922,21 +934,22 @@ h3 {
   background-position: center;
 }
 
-.dropdown {
-  height: 54px;
-}
-
-.dropdown.active {
-  max-height: 300px;
-  height: auto;
-}
-
-.dropdown .data-list {
+.dropdown-search-wrapper {
   height: 0;
+  transition: height .15s ease-out;
 }
 
-.dropdown.active .data-list {
-  height: 210px;
+.dropdown.active .dropdown-search-wrapper {
+  height: auto;
+  max-height: 500px;
+}
+
+.dropdown-chevron {
+  transition: all .15s ease-out;
+}
+
+.dropdown.active .dropdown-chevron {
+  transform: rotate(180deg);
 }
 
 #recipes-count {

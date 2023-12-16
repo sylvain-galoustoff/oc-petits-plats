@@ -1,4 +1,4 @@
-export default function IngredientsList({ ingredient, quantity, unit }) {
+export default function IngredientDetails({ ingredient, quantity, unit }) {
   let $temp = document.querySelector("#ingredient-template");
   let $ingredientDetails = $temp.content.cloneNode(true);
 
