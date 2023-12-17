@@ -67,18 +67,20 @@
 
     <div id="toolbar" class="container mx-auto mt-5 flex gap-16 items-center">
       <div
-        class="dropdown bg-white rounded-[11px] w-[195px] cursor-pointer relative active"
+        class="dropdown bg-white rounded-[11px] w-[195px] cursor-pointer relative"
       >
-        <label
-          class="dropdown-header flex items-center justify-between p-4 h-[65px] font-medium cursor-pointer relative z-10"
-          for="ingredient-search"
-        >
-          Ingrédients
+        <div class="label-container flex justify-between items-center">
+          <label
+            class="dropdown-header flex items-center justify-between p-4 pr-0 h-[65px] font-medium cursor-pointer relative z-10"
+            for="ingredients-search"
+          >
+            Ingrédients
+          </label>
           <ion-icon
-            class="dropdown-chevron"
+            class="dropdown-chevron text-lg relative z-10 mr-4"
             name="chevron-down-sharp"
           ></ion-icon>
-        </label>
+        </div>
 
         <div
           class="dropdown-search-wrapper overflow-hidden rounded-[11px] bg-white absolute z-[9] top-0 left-0 w-full pt-[65px]"
@@ -88,34 +90,86 @@
           >
             <input
               type="text"
-              name="ingredient-search"
-              id="ingredient-search"
+              name="ingredients-search"
+              id="ingredients-search"
               class="border border-lightgrey p-2.5 absolute top-0 left-0 w-full h-full focus:outline-none"
             />
             <ion-icon name="search-sharp" class="text-lightgrey"></ion-icon>
           </div>
-          <div class="data-list overflow-hidden">
-            <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
-              Jus de citron
-            </p>
-            <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
-              Glaçons
-            </p>
-            <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
-              Tomates
-            </p>
-            <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
-              Poivron rouge
-            </p>
-            <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
-              Thon en miette
-            </p>
-            <p class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer">
-              Oeufs
-            </p>
-          </div>
+          <div class="data-list overflow-hidden" id="ingredients-list"></div>
         </div>
       </div>
+      <!-- end dropdown ingrédients -->
+
+      <div
+        class="dropdown bg-white rounded-[11px] w-[195px] cursor-pointer relative"
+      >
+        <div class="label-container flex justify-between items-center">
+          <label
+            class="dropdown-header flex items-center justify-between p-4 pr-0 h-[65px] font-medium cursor-pointer relative z-10"
+            for="appliances-search"
+          >
+            Appareils
+          </label>
+          <ion-icon
+            class="dropdown-chevron text-lg relative z-10 mr-4"
+            name="chevron-down-sharp"
+          ></ion-icon>
+        </div>
+
+        <div
+          class="dropdown-search-wrapper overflow-hidden rounded-[11px] bg-white absolute z-[9] top-0 left-0 w-full pt-[65px]"
+        >
+          <div
+            class="dropdown-search mb-2 mx-4 px-2 relative h-[36px] flex justify-end items-center"
+          >
+            <input
+              type="text"
+              name="appliances-search"
+              id="appliances-search"
+              class="border border-lightgrey p-2.5 absolute top-0 left-0 w-full h-full focus:outline-none"
+            />
+            <ion-icon name="search-sharp" class="text-lightgrey"></ion-icon>
+          </div>
+          <div class="data-list overflow-hidden" id="appliances-list"></div>
+        </div>
+      </div>
+      <!-- end dropdown appareils -->
+
+      <div
+        class="dropdown bg-white rounded-[11px] w-[195px] cursor-pointer relative"
+      >
+        <div class="label-container flex justify-between items-center">
+          <label
+            class="dropdown-header flex items-center justify-between p-4 pr-0 h-[65px] font-medium cursor-pointer relative z-10"
+            for="ustensils-search"
+          >
+            Ustensiles
+          </label>
+          <ion-icon
+            class="dropdown-chevron text-lg relative z-10 mr-4"
+            name="chevron-down-sharp"
+          ></ion-icon>
+        </div>
+
+        <div
+          class="dropdown-search-wrapper overflow-hidden rounded-[11px] bg-white absolute z-[9] top-0 left-0 w-full pt-[65px]"
+        >
+          <div
+            class="dropdown-search mb-2 mx-4 px-2 relative h-[36px] flex justify-end items-center"
+          >
+            <input
+              type="text"
+              name="ustensils-search"
+              id="ustensils-search"
+              class="border border-lightgrey p-2.5 absolute top-0 left-0 w-full h-full focus:outline-none"
+            />
+            <ion-icon name="search-sharp" class="text-lightgrey"></ion-icon>
+          </div>
+          <div class="data-list overflow-hidden" id="ustensils-list"></div>
+        </div>
+      </div>
+      <!-- end dropdown ustensiles -->
 
       <p class="ml-auto" id="recipes-count">Chargement...</p>
     </div>
@@ -155,30 +209,40 @@
     </div> -->
     <!-- End search terms-->
 
-    <div id="recipes" class="container mx-auto my-11 grid grid-cols-3 gap-12">
-      <template id="card-template">
-        <article class="bg-white rounded-[11px] h-full overflow-hidden">
-          <div
-            class="recipe-thumbnail h-[253px] overflow-hidden flex justify-center items-center mb-8"
-          >
-            <img class="block w-full h-auto recipe-img" />
-          </div>
-          <h2 class="px-6 mb-7 recipe-title"></h2>
-          <h3 class="px-6 mb-4 label">RECETTE</h3>
-          <p class="px-6 mb-8 recipe-description"></p>
-          <h3 class="px-6 mb-4 label">INGREDIENTS</h3>
-          <div class="ingredients-list grid grid-cols-2 px-6 mb-16 gap-6"></div>
-        </article>
-      </template>
-
-      <template id="ingredient-template">
-        <div class="ingredient">
-          <p class="ingredient-name"></p>
-          <div class="ingredient-qte"></div>
-        </div>
-      </template>
-    </div>
+    <div
+      id="recipes"
+      class="container mx-auto my-11 grid grid-cols-3 gap-12"
+    ></div>
     <!-- end recipes grid -->
+
+    <!-- templates -->
+    <template id="item-list-template">
+      <p
+        class="data-list-item px-4 py-2 hover:bg-primary cursor-pointer capitalize"
+      ></p>
+    </template>
+
+    <template id="card-template">
+      <article class="bg-white rounded-[11px] h-full overflow-hidden">
+        <div
+          class="recipe-thumbnail h-[253px] overflow-hidden flex justify-center items-center mb-8"
+        >
+          <img class="block w-full h-auto recipe-img" />
+        </div>
+        <h2 class="px-6 mb-7 recipe-title"></h2>
+        <h3 class="px-6 mb-4 label">RECETTE</h3>
+        <p class="px-6 mb-8 recipe-description"></p>
+        <h3 class="px-6 mb-4 label">INGREDIENTS</h3>
+        <div class="ingredients-list grid grid-cols-2 px-6 mb-16 gap-6"></div>
+      </article>
+    </template>
+
+    <template id="ingredient-template">
+      <div class="ingredient">
+        <p class="ingredient-name"></p>
+        <div class="ingredient-qte"></div>
+      </div>
+    </template>
 
     <script
       type="module"
