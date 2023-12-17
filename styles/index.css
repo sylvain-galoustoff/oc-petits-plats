@@ -952,35 +952,32 @@ h3 {
 }
 
 .dropdown-search-wrapper {
-  max-height: 1000px;
-  /* max-height: 0; */
+  max-height: 0;
   transition: all .25s ease-out;
 }
 
-/* .dropdown:focus-within .dropdown-search-wrapper {
+.dropdown.active .dropdown-search-wrapper {
   max-height: 1000px;
-} */
+}
 
 .dropdown-chevron {
   transition: all .25s ease-out;
 }
 
-/* .dropdown:focus-within .dropdown-chevron {
+.dropdown.active .dropdown-chevron {
   transform: rotate(-180deg);
-} */
+}
 
 .data-list {
-  /* max-height: 0;
-  overflow: hidden; */
-  max-height: 200px;
-  overflow-y: auto;
+  max-height: 0;
+  overflow: hidden;
   transition: all .25s ease-out;
 }
 
-/* .dropdown:focus-within .data-list {
+.dropdown.active .data-list {
   max-height: 200px;
   overflow-y: auto;
-} */
+}
 
 #recipes-count {
   font-family: var(--title-font);
