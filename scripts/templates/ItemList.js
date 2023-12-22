@@ -1,7 +1,8 @@
 import getAllAppliances from "../services/getAllAppliances.js";
 import getAllIngredients from "../services/getAllIngredients.js";
 import getAllUstensils from "../services/getAllUstensils.js";
-import SearchTag from "./SearchTag.js";
+import SearchBadge from "./SearchBadge.js";
+import searchTerms from "../store/searchTerms.js";
 
 export default function ItemList(dataType) {
   //formater les données
@@ -37,9 +38,8 @@ export default function ItemList(dataType) {
       } else {
         itemsArray = filteredData(fullData, term);
       }
-      
-      displayItems(itemsArray, `${dataType}-list`);
 
+      displayItems(itemsArray, `${dataType}-list`);
     });
 }
 
@@ -51,19 +51,22 @@ function filteredData(items, term) {
 }
 
 function displayItems(items, containerId) {
-  const container = document.getElementById(containerId)
+  const container = document.getElementById(containerId);
   container.innerHTML = "";
 
   const temp = document.getElementById("item-list-template");
 
   items.forEach((item) => {
     let $item = temp.content.cloneNode(true);
-    const dataListItem = $item.querySelector('.data-list-item')
+    const dataListItem = $item.querySelector(".data-list-item");
     dataListItem.innerText = item;
 
-    dataListItem.addEventListener('click', function() {
-      document.getElementById('search-terms').appendChild(SearchTag(item))
-    })
+    dataListItem.addEventListener("click", function () {
+      let searchTermsTags = [...searchTerms.tags];
+      searchTermsTags.push(item);
+      searchTerms.tags = searchTermsTags;
+      document.getElementById("search-terms").appendChild(SearchBadge(item));
+    });
 
     container.appendChild($item);
   });

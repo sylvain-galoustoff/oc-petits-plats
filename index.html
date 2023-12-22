@@ -27,15 +27,18 @@
           DÉLICIEUSES
         </h1>
         <div class="relative h-[72px] flex items-center justify-between pl-[35px] pr-[10px]" id="search-wrapper">
-          <label class="relative z-10" for="search-recipe">
-            Rechercher une recette, un ingrédient, ...
-          </label>
-          <div
-            class="relative z-10 bg-black text-white w-[50px] h-[50px] flex justify-center items-center rounded-[10px]">
-            <ion-icon name="search-sharp" class="text-2xl"></ion-icon>
+          <div class="absolute right-[10px] z-30 bg-black rounded-[10px]">
+            <div
+              class="text-black absolute z-10  w-[50px] h-[50px] flex justify-center items-center transition-all duration-200 ease-out cursor-pointer"
+              id="search-reset">
+              <ion-icon name="close-sharp" class="text-2xl"></ion-icon>
+            </div>
+            <div class="text-white w-[50px] h-[50px] flex justify-center items-center relative z-10">
+              <ion-icon name="search-sharp" class="text-2xl"></ion-icon>
+            </div>
           </div>
-          <input type="search" class="absolute top-0 left-0 w-full h-[72px] rounded-[11px] bg-white"
-            name="search-recipe" id="search-recipe" />
+          <input type="text" class="absolute top-0 left-0 w-full h-[72px] rounded-[11px] bg-white pl-[35px]"
+            name="search-recipe" id="search-recipe" placeholder="Rechercher une recette, un ingrédient..." />
         </div>
       </div>
     </div>

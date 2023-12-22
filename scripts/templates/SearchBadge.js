@@ -1,8 +1,6 @@
-export default function SearchTag(term) {
+export default function SearchBadge(term) {
   const temp = document.getElementById("search-term-template");
   let $searchTag = temp.content.cloneNode(true);
   $searchTag.querySelector(".search-term-value").innerText = term;
-
-  console.log($searchTag);
   return $searchTag;
 }
