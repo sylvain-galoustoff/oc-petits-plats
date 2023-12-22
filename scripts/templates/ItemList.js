@@ -1,6 +1,7 @@
 import getAllAppliances from "../services/getAllAppliances.js";
 import getAllIngredients from "../services/getAllIngredients.js";
 import getAllUstensils from "../services/getAllUstensils.js";
+import SearchTerm from "./SearchTerm.js";
 
 export default function ItemList(dataType) {
   //formater les données
@@ -61,7 +62,7 @@ function displayItems(items, containerId) {
     dataListItem.innerText = item;
 
     dataListItem.addEventListener('click', function() {
-      console.log(item);
+      document.getElementById('search-terms').appendChild(SearchTerm(item))
     })
 
     container.appendChild($item);

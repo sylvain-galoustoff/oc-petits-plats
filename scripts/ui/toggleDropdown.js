@@ -1,26 +1,23 @@
-export default function toggleDropdown(){
+export default function toggleDropdown() {
+  const dropdowns = document.querySelectorAll(".dropdown");
+  dropdowns.forEach(function (dropdown) {
 
-    const dropdowns = document.querySelectorAll('.dropdown')
-    dropdowns.forEach(function(dropdown){
-        let isOpen = false
-        dropdown.addEventListener('click', function(){
+    let isOpen = false;
 
-            if (isOpen === false) {
-                this.classList.add('active')
-            } else if (isOpen === true) {
-                this.classList.remove('active')
-            }
-            
-            isOpen = !isOpen
-            console.log(isOpen);
-        })
+    dropdown.addEventListener("click", function () {
+      if (isOpen === false) {
+        this.classList.add("active");
+      } else if (isOpen === true) {
+        this.classList.remove("active");
+      }
+      isOpen = !isOpen;
+    });
 
-        dropdown.querySelectorAll('input').forEach(function(input) {
-            input.addEventListener('click', function(event) {
-                event.stopPropagation();
-            });
-        });
-        
-    })
-
+    dropdown.querySelectorAll("input").forEach(function (input) {
+      input.addEventListener("click", function (event) {
+        event.stopPropagation();
+      });
+    });
+    
+  });
 }
