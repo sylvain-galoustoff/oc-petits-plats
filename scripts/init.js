@@ -5,8 +5,12 @@ import ItemList from "./templates/ItemList.js";
 import getAllAppliances from "./services/getAllAppliances.js";
 import getAllUstensils from "./services/getAllUstensils.js";
 import toggleDropdown from "./ui/toggleDropdown.js";
+import reformatedData from "./services/reformatedData.js";
 
 function init() {
+
+  reformatedData()
+
   toggleDropdown();
   
   ItemList("ingredients");
