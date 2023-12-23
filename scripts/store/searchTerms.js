@@ -1,6 +1,18 @@
 const searchTerms = {
-    main: '',
-    tags: ''
-}
+  main: "",
+  ingredients: [],
+  appliance: [],
+  ustensils: []
+};
 
-export default searchTerms
+export const searchTermsProxy = new Proxy(searchTerms, {
+  set: function (target, key, value) {
+
+    target[key] = value
+    console.log(searchTerms);
+
+    return true;
+  },
+});
+
+export default searchTermsProxy

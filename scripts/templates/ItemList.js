@@ -2,7 +2,7 @@ import getAllAppliances from "../services/getAllAppliances.js";
 import getAllIngredients from "../services/getAllIngredients.js";
 import getAllUstensils from "../services/getAllUstensils.js";
 import SearchBadge from "./SearchBadge.js";
-import searchTerms from "../store/searchTerms.js";
+import {searchTermsProxy} from "../store/searchTerms.js";
 
 export default function ItemList(dataType) {
   //formater les données
@@ -25,7 +25,7 @@ export default function ItemList(dataType) {
       break;
   }
 
-  displayItems(fullData, `${dataType}-list`);
+  displayItems(fullData, `${dataType}-list`, dataType);
 
   document
     .getElementById(`${dataType}-search`)
@@ -39,7 +39,7 @@ export default function ItemList(dataType) {
         itemsArray = filteredData(fullData, term);
       }
 
-      displayItems(itemsArray, `${dataType}-list`);
+      displayItems(itemsArray, `${dataType}-list`, dataType);
     });
 }
 
@@ -50,7 +50,7 @@ function filteredData(items, term) {
   return filteredItems;
 }
 
-function displayItems(items, containerId) {
+function displayItems(items, containerId, dataType) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
 
@@ -62,9 +62,9 @@ function displayItems(items, containerId) {
     dataListItem.innerText = item;
 
     dataListItem.addEventListener("click", function () {
-      let searchTermsTags = [...searchTerms.tags];
+      let searchTermsTags = [...searchTermsProxy[dataType]];
       searchTermsTags.push(item);
-      searchTerms.tags = searchTermsTags;
+      searchTermsProxy[dataType] = searchTermsTags;
       document.getElementById("search-terms").appendChild(SearchBadge(item));
     });
 

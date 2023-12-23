@@ -1,6 +1,4 @@
-import filteredRecipes from "../services/filteredRecipes.js"
-import searchTerms from "../store/searchTerms.js"
-
+import searchTermsProxy from "../store/searchTerms.js"
 
 export default function mainTerms(){
 
@@ -12,11 +10,9 @@ export default function mainTerms(){
 
         if (term.length > 2) {
             resetSearch.classList.add('active')
-            searchTerms.main = term
-            filteredRecipes()
+            searchTermsProxy.main = term
         } else {
             resetSearch.classList.remove('active')
-            searchTerms.main = ''
         }
         
     })
