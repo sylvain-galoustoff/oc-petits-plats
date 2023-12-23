@@ -63,9 +63,11 @@ function displayItems(items, containerId, dataType) {
 
     dataListItem.addEventListener("click", function () {
       let searchTermsTags = [...searchTermsProxy[dataType]];
-      searchTermsTags.push(item);
-      searchTermsProxy[dataType] = searchTermsTags;
-      document.getElementById("search-terms").appendChild(SearchBadge(item));
+      if (!searchTermsTags.includes(item)) {
+        searchTermsTags.push(item);
+        searchTermsProxy[dataType] = searchTermsTags;
+        document.getElementById("search-terms").appendChild(SearchBadge(item));
+      }
     });
 
     container.appendChild($item);

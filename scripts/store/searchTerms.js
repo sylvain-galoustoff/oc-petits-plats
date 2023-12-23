@@ -1,7 +1,7 @@
 const searchTerms = {
   main: "",
   ingredients: [],
-  appliance: [],
+  appliances: [],
   ustensils: []
 };
 
