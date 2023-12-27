@@ -66,7 +66,7 @@ function displayItems(items, containerId, dataType) {
       if (!searchTermsTags.includes(item)) {
         searchTermsTags.push(item);
         searchTermsProxy[dataType] = searchTermsTags;
-        document.getElementById("search-terms").appendChild(SearchBadge(item));
+        document.getElementById("search-terms").appendChild(SearchBadge(item, dataType));
       }
     });
 

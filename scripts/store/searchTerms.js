@@ -1,4 +1,4 @@
-const searchTerms = {
+export const searchTerms = {
   main: "",
   ingredients: [],
   appliances: [],
@@ -9,7 +9,7 @@ export const searchTermsProxy = new Proxy(searchTerms, {
   set: function (target, key, value) {
 
     target[key] = value
-    console.log(searchTerms);
+    console.table(searchTerms);
 
     return true;
   },
