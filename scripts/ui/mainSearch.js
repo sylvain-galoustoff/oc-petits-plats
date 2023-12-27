@@ -10,7 +10,7 @@ export default function mainTerms(){
 
         if (term.length > 2) {
             resetSearch.classList.add('active')
-            searchTermsProxy.main = term
+            searchTermsProxy.main = term.toLowerCase()
         } else {
             resetSearch.classList.remove('active')
         }
