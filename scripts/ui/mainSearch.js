@@ -8,12 +8,13 @@ export default function mainTerms(){
     mainSearch.addEventListener('input', function(e){
         const term = e.target.value
 
-        if (term.length > 2) {
+        if (term.length > 0) {
             resetSearch.classList.add('active')
-            searchTermsProxy.main = term.toLowerCase()
         } else {
             resetSearch.classList.remove('active')
         }
+
+        searchTermsProxy.main = term.toLowerCase()
         
     })
 
