@@ -2,7 +2,7 @@ import getAllAppliances from "../services/getAllAppliances.js";
 import getAllIngredients from "../services/getAllIngredients.js";
 import getAllUstensils from "../services/getAllUstensils.js";
 import SearchBadge from "./SearchBadge.js";
-import {searchTermsProxy} from "../store/searchTerms.js";
+import {searchTermsProxy} from "../searchEngine/searchProxy.js";
 import recipes from "../../data/recipes.js";
 
 export default function ItemList(dataType, testRecipes = recipes ) {

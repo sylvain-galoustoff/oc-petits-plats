@@ -9,9 +9,6 @@ export default function getRecipesFromIds(ids) {
         filteredData.push(recipe[0])
     })
 
-    console.log(ids);
-    console.log(filteredData);
-
     return filteredData
 
 }

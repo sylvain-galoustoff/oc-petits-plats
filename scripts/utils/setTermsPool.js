@@ -1,11 +1,18 @@
+/**
+ * Retourne la liste complete des recettes avec un champ supplémentaire termsPool pour chaque recette
+ * termsPool : une chaine de carateres contenant le nom, les ingredients, les ustensiles et les appareils.
+ * Dans le but de faciliter la recherche via le champ de recherche principal
+ * 
+ * @returns {Array} Tableau des recettes modifiées
+ */
+
 import recipes from "../../data/recipes.js";
 
 export default function setTermsPool() {
-  let pool = [];
 
-  recipes.forEach((recipe) => {
-    const oneRecipe = {};
-    oneRecipe.id = recipe.id;
+  const recipesWithTermsPool = [...recipes]
+
+  recipesWithTermsPool.forEach((recipe) => {
 
     let terms = [];
 
@@ -21,10 +28,11 @@ export default function setTermsPool() {
     });
 
     terms = terms.join(',')
-    oneRecipe.terms = terms;
 
-    pool.push(oneRecipe);
+    recipe.termsPool = terms
+
   });
 
-  return pool;
+  return recipesWithTermsPool
+
 }

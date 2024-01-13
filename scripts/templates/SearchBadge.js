@@ -1,4 +1,4 @@
-import searchTermsProxy from "../store/searchTerms.js";
+import searchTermsProxy from "../searchEngine/searchProxy.js";
 
 export default function SearchBadge(term, dataType) {
   const temp = document.getElementById("search-badge-template");

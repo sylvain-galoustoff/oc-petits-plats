@@ -17,5 +17,8 @@
     "prettier": "^3.1.0",
     "prettier-plugin-tailwindcss": "^0.5.9",
     "tailwindcss": "^3.3.6"
+  },
+  "dependencies": {
+    "jsdoc": "^4.0.2"
   }
 }

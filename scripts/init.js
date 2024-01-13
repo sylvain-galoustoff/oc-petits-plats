@@ -4,11 +4,8 @@ import countRecipes from "./utils/countRecipes.js";
 import ItemList from "./templates/ItemList.js";
 import toggleDropdown from "./ui/toggleDropdown.js";
 import mainTerms from "./ui/mainSearch.js";
-import setTermsPool from "./utils/setTermsPool.js";
 
 function init() {
-
-  setTermsPool()
 
   mainTerms()
   toggleDropdown();
