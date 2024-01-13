@@ -3,13 +3,14 @@ import getAllIngredients from "../services/getAllIngredients.js";
 import getAllUstensils from "../services/getAllUstensils.js";
 import SearchBadge from "./SearchBadge.js";
 import {searchTermsProxy} from "../store/searchTerms.js";
+import recipes from "../../data/recipes.js";
 
-export default function ItemList(dataType) {
+export default function ItemList(dataType, testRecipes = recipes ) {
   //formater les données
   let fullData;
   switch (dataType) {
     case "ingredients":
-      fullData = getAllIngredients();
+      fullData = getAllIngredients(testRecipes);
       break;
 
     case "appliances":

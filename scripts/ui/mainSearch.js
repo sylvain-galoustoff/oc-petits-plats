@@ -18,4 +18,9 @@ export default function mainTerms(){
         
     })
 
+    resetSearch.addEventListener('click', function(){
+        mainSearch.value = ""
+        resetSearch.classList.remove('active')
+    })
+
 }

@@ -1,4 +1,5 @@
 import getRecipesFromIds from "../services/getRecipesFromIds.js";
+import ItemList from "../templates/ItemList.js";
 import countRecipes from "../utils/countRecipes.js";
 import renderRecipes from "../utils/renderRecipes.js";
 import setTermsPool from "../utils/setTermsPool.js";
@@ -14,8 +15,9 @@ export const searchTermsProxy = new Proxy(searchTerms, {
   set: function (target, key, value) {
     target[key] = value;
 
-    const resultIds = getResultIds(searchTerms);
-    const filteredRecipes = getRecipesFromIds(resultIds);
+    const resultIds = getResultIds(searchTerms);  //getResultIds : retourne un tableau comprenant les ID des recettes correspondantes aux termes de la recherche
+    const filteredRecipes = getRecipesFromIds(resultIds); //filteredRecipes : retourne un tableau des recettes correspondantes aux termes de la recherche
+    ItemList("ingredients", filteredRecipes)
     renderRecipes(filteredRecipes)
     countRecipes(filteredRecipes)
 
@@ -25,11 +27,10 @@ export const searchTermsProxy = new Proxy(searchTerms, {
 
 export default searchTermsProxy;
 
-//getResultIds : Obtenir les ID des recettes correspondantes aus termes de la recherche
+//getResultIds : Obtenir les ID des recettes correspondantes aux termes de la recherche
 function getResultIds(terms) {
-  console.log(terms);
 
-  const pool = setTermsPool();
+  const pool = setTermsPool(); //tableau d'objets {id: recipeId, terms:string des termes potentiels trouvable pour cette recette}
 
   //Obtenir obtenir un tableau des ID de recettes qui contiennent la recherche principale
   let mainSearchResultIds = [];
@@ -41,8 +42,9 @@ function getResultIds(terms) {
 
   //Obtenir obtenir un tableau des ID de recettes qui contiennent les ingrédients
   let ingredientsResultIds = [];
+  let filteredPool = [...pool]
   terms.ingredients.forEach((ingredient) => {
-    pool.forEach((item) => {
+    filteredPool.forEach((item) => {
       if (item.terms.includes(ingredient)) {
         ingredientsResultIds.push(item.id);
       }

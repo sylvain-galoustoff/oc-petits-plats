@@ -1,6 +1,4 @@
-import recipes from "../../data/recipes.js";
-
-export default function getAllIngredients() {
+export default function getAllIngredients(recipes) {
   const ingredientsList = [];
 
   recipes.forEach((recipe) => {
