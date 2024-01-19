@@ -1,8 +1,11 @@
-import setTermsPool from "../utils/setTermsPool.js";
 import getAppliancesResult from "./getAppliancesResult.js";
 import getIngredientsResult from "./getIngredientsResult.js";
 import getUstensilsResult from "./getUstensilsResult.js";
+import getMainResult from "./getMainResult.js";
+import getRecipesFromIds from "../services/getRecipesFromIds.js";
 import recipes from "../../data/recipes.js";
+import countRecipes from "../utils/countRecipes.js";
+import renderRecipes from "../utils/renderRecipes.js";
 
 export const searchTerms = {
   main: "",
@@ -30,58 +33,103 @@ export default searchTermsProxy;
  */
 
 function getSearchResult() {
-
-  let mainResult = []
-  let ingredientsResult = []
-  let appliancesResult = []
-  let ustensilsResult = []
+  let mainResult = [];
+  let ingredientsResult = [];
+  let appliancesResult = [];
+  let ustensilsResult = [];
 
   if (searchTerms.main.length > 0) {
-    mainResult = getMainResult()
+    mainResult = getMainResult(searchTerms.main);
   } else {
-    mainResult = []
+    mainResult = [];
   }
 
   if (searchTerms.ingredients.length > 0) {
-    ingredientsResult = getIngredientsResult(recipes, searchTerms.ingredients)
+    ingredientsResult = getIngredientsResult(recipes, searchTerms.ingredients);
   } else {
-    ingredientsResult = []
+    ingredientsResult = [];
   }
-  
+
   if (searchTerms.appliances.length > 0) {
-    appliancesResult = getAppliancesResult(recipes, searchTerms.appliances)
+    appliancesResult = getAppliancesResult(recipes, searchTerms.appliances);
   } else {
-    appliancesResult = []
+    appliancesResult = [];
   }
-  
+
   if (searchTerms.ustensils.length > 0) {
-    ustensilsResult = getUstensilsResult(recipes, searchTerms.ustensils)
+    ustensilsResult = getUstensilsResult(recipes, searchTerms.ustensils);
   } else {
-    ustensilsResult = []
+    ustensilsResult = [];
   }
-  
-  console.clear()
-  console.log('Résultats Main : ', mainResult);
-  console.log('Résultats Ingredients : ', ingredientsResult);
-  console.log('Résultats Appareils : ', appliancesResult);
-  console.log('Résultats Ustensils : ', ustensilsResult);
+
+  let commonIds = getCommonIds(
+    mainResult,
+    ingredientsResult,
+    appliancesResult,
+    ustensilsResult
+  );
+  if (commonIds === undefined) {
+    commonIds = [];
+  }
+
+  const filteredRecipes = getRecipesFromIds(commonIds);
+
+  if ( !hasSearchTerm() ) {
+    
+    countRecipes(recipes)
+    renderRecipes(recipes)
+
+  } else if (hasSearchTerm() && filteredRecipes.length === 0) {
+    console.log('no result');
+  } else {
+    countRecipes(filteredRecipes)
+    renderRecipes(filteredRecipes)
+  }
+
+  // console.clear()
+  // console.log('Résultats Main : ', mainResult);
+  // console.log('Résultats Ingredients : ', ingredientsResult);
+  // console.log('Résultats Appareils : ', appliancesResult);
+  // console.log('Résultats Ustensils : ', ustensilsResult);
+  // console.log("EN COMMUN :");
+  // console.log(commonIds);
+  // console.log(filteredRecipes);
 }
 
 /**
- * getMainResult()
- * Crée un tableau d'ID des recettes correspondantes à la recherche du champ principal
- * @returns {Array}
+ * getCommonIds
+ * @param {...Array} arrays tableau contenant des tableaux d'id
+ * @returns {Array} tableau des ids communes a tous les tableaux
  */
+function getCommonIds(...arrays) {
+  const nonEmptyArrays = arrays.filter((array) => array.length > 0);
 
-function getMainResult() {
-  const recipesWithPool = setTermsPool();
-  const recipesResult = recipesWithPool.filter(recipe => recipe.termsPool.includes(searchTerms.main))
-  const mainResultIds = recipesResult.map(recipe => recipe.id)
-  return mainResultIds
+  const commonIds = nonEmptyArrays.reduce((common, array) => {
+    return common.filter((id) => array.includes(id));
+  }, nonEmptyArrays[0]);
+
+  return commonIds;
 }
 
+/**
+ * hasSearchTerm
+ * @returns {boolean} renvoie false s'il y a au moins 1 terme de recherche
+ */
+function hasSearchTerm() {
+  const terms = Object.values(searchTerms);
+  const checker = terms.map((value) => {
+    if (value.length > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  });
 
-
-
-
-
+  if (checker.includes(true)) {
+    console.log('has search terms ? ' + true);
+    return true;
+  }
+  
+  console.log('has search terms ? ' + false);
+  return false;
+}

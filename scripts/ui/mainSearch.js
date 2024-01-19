@@ -1,26 +1,24 @@
-import searchTermsProxy from "../searchEngine/searchProxy.js"
+import searchTermsProxy from "../searchEngine/searchProxy.js";
 
-export default function mainTerms(){
+export default function mainTerms() {
+  const mainSearch = document.getElementById("search-recipe");
+  const resetSearch = document.getElementById("search-reset");
 
-    const mainSearch = document.getElementById('search-recipe')
-    const resetSearch = document.getElementById('search-reset')
+  mainSearch.addEventListener("input", function (e) {
+    const term = e.target.value;
 
-    mainSearch.addEventListener('input', function(e){
-        const term = e.target.value
+    if (term.length > 0) {
+      resetSearch.classList.add("active");
+    } else {
+      resetSearch.classList.remove("active");
+    }
 
-        if (term.length > 0) {
-            resetSearch.classList.add('active')
-        } else {
-            resetSearch.classList.remove('active')
-        }
+    searchTermsProxy.main = term.toLowerCase();
+  });
 
-        searchTermsProxy.main = term.toLowerCase()
-        
-    })
-
-    resetSearch.addEventListener('click', function(){
-        mainSearch.value = ""
-        resetSearch.classList.remove('active')
-    })
-
+  resetSearch.addEventListener("click", function () {
+    mainSearch.value = "";
+    searchTermsProxy.main = "";
+    resetSearch.classList.remove("active");
+  });
 }

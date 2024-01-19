@@ -5,20 +5,20 @@ import SearchBadge from "./SearchBadge.js";
 import {searchTermsProxy} from "../searchEngine/searchProxy.js";
 import recipes from "../../data/recipes.js";
 
-export default function ItemList(dataType, testRecipes = recipes ) {
+export default function ItemList(dataType, allRecipes = recipes ) {
   //formater les données
   let fullData;
   switch (dataType) {
     case "ingredients":
-      fullData = getAllIngredients(testRecipes);
+      fullData = getAllIngredients(allRecipes);
       break;
 
     case "appliances":
-      fullData = getAllAppliances();
+      fullData = getAllAppliances(allRecipes);
       break;
 
     case "ustensils":
-      fullData = getAllUstensils();
+      fullData = getAllUstensils(allRecipes);
       break;
 
     default:
