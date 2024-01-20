@@ -629,11 +629,6 @@ video {
   margin-bottom: 2.75rem;
 }
 
-.my-5 {
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
-}
-
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -818,19 +813,14 @@ video {
   background-color: rgb(255 209 91 / var(--tw-bg-opacity));
 }
 
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-red-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
-}
-
 .bg-red-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(252 165 165 / var(--tw-bg-opacity));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .p-2 {
@@ -1060,6 +1050,37 @@ label {
 
 #search-reset.active {
   transform: translateX(-100%);
+}
+
+#recipes {
+  article {
+    animation: recipeCard .25s ease-out forwards;
+  }
+}
+
+@keyframes recipeCard {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+#no-result {
+  transform: translateY(-25px);
+  animation: noResult .25s ease-out forwards
+}
+
+@keyframes noResult {
+  from {
+    transform: translateY(-25px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
 }
 
 .hover\:bg-primary:hover {

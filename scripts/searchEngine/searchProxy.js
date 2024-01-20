@@ -84,6 +84,7 @@ function getSearchResult() {
     ItemList("appliances", recipes);
     ItemList("ustensils", recipes);
   } else if (hasSearchTerm() && filteredRecipes.length === 0) {
+    removeNotifNoResult()
     addNotifNoResult()
     countRecipes(filteredRecipes);
     ItemList("ingredients", filteredRecipes);
