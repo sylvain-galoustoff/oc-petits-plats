@@ -112,12 +112,10 @@
   </div>
   <!-- end toolbar -->
 
-  <p id="no-result" class="container mx-auto mt-5 mb-10">
-    Aucun résultat ne correspond à vos critères de recherche
-  </p>
-
-  <div id="search-terms" class="container mx-auto mt-5 mb-10 flex gap-4"></div>
+  <div id="search-terms" class="container mx-auto m-5 mb-10 flex gap-4"></div>
   <!-- End search terms-->
+
+  <div id="notifs"></div>
 
   <div id="recipes" class="container mx-auto my-11 grid grid-cols-3 gap-12"></div>
   <!-- end recipes grid -->
@@ -151,6 +149,12 @@
     <div class="search-badge bg-primary rounded-[11px] px-5 py-2.5 flex items-center gap-2">
       <span class="search-term-value"></span><ion-icon class="delete-search-term cursor-pointer"
         name="close"></ion-icon>
+    </div>
+  </template>
+
+  <template id="no-result-template">
+    <div id="no-result" class="container p-6 mx-auto mt-5 text-center bg-red-300 rounded-[11px]">
+      <p>Aucun résultat ne correspond à vos critères de recherche.</p>
     </div>
   </template>
 

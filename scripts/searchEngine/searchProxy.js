@@ -7,6 +7,7 @@ import recipes from "../../data/recipes.js";
 import countRecipes from "../utils/countRecipes.js";
 import renderRecipes from "../utils/renderRecipes.js";
 import ItemList from "../templates/ItemList.js";
+import {addNotifNoResult, removeNotifNoResult} from "../templates/NoSearchResult.js";
 
 export const searchTerms = {
   main: "",
@@ -76,14 +77,21 @@ function getSearchResult() {
   const filteredRecipes = getRecipesFromIds(commonIds);
 
   if (!hasSearchTerm()) {
+    removeNotifNoResult()
     countRecipes(recipes);
     renderRecipes(recipes);
     ItemList("ingredients", recipes);
     ItemList("appliances", recipes);
     ItemList("ustensils", recipes);
   } else if (hasSearchTerm() && filteredRecipes.length === 0) {
-    console.log("no result");
+    addNotifNoResult()
+    countRecipes(filteredRecipes);
+    ItemList("ingredients", filteredRecipes);
+    ItemList("appliances", filteredRecipes);
+    ItemList("ustensils", filteredRecipes);
+    renderRecipes(filteredRecipes);
   } else {
+    removeNotifNoResult()
     countRecipes(filteredRecipes);
     ItemList("ingredients", filteredRecipes);
     ItemList("appliances", filteredRecipes);
@@ -131,10 +139,8 @@ function hasSearchTerm() {
   });
 
   if (checker.includes(true)) {
-    console.log("has search terms ? " + true);
     return true;
   }
 
-  console.log("has search terms ? " + false);
   return false;
 }
