@@ -8,7 +8,22 @@ import setTermsPool from "../utils/setTermsPool.js";
 
 export default function getMainResult(searchTerms) {
   const recipesWithPool = setTermsPool();
-  const recipesResult = recipesWithPool.filter(recipe => recipe.termsPool.includes(searchTerms))
-  const mainResultIds = recipesResult.map(recipe => recipe.id)
-  return mainResultIds
+
+  let recipesResult = [];
+  let i = 0;
+  while (i < recipesWithPool.length) {
+    if (recipesWithPool[i].termsPool.includes(searchTerms)) {
+      recipesResult.push(recipesWithPool[i]);
+    }
+    i++;
+  }
+
+  let mainResultIds = [];
+  i = 0;
+  while (i < recipesResult.length) {
+    mainResultIds.push(recipesResult[i].id);
+    i++;
+  }
+
+  return mainResultIds;
 }
