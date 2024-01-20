@@ -1,6 +1,4 @@
-import recipes from "../../data/recipes.js";
-
-export default function getAllAppliances() {
+export default function getAllAppliances(recipes) {
   const appliancesList = [];
 
   recipes.forEach((recipe) => {

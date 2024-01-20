@@ -12,18 +12,13 @@ export default function getAppliancesResult(recipes, tags) {
 
   const filteredArray = recipes.map(recipe => {
     if (recipe.appliance.toLowerCase() === searchTag.toLowerCase()) {
-      return recipe
+      return recipe.id
     }
   }).filter(Boolean)
 
   searchTags.splice(0,1)
   if (searchTags.length === 0) {
-    if (filteredArray.length > 0) {
-      const filteredArrayIds = filteredArray.map(recipe => recipe.id)
-      return filteredArrayIds
-    } else {
-      return []
-    }
+    return filteredArray
   } else {
     return getAppliancesResult(filteredArray, searchTags)
   }
