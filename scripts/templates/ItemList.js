@@ -68,6 +68,7 @@ function displayItems(items, containerId, dataType) {
         searchTermsTags.push(item);
         searchTermsProxy[dataType] = searchTermsTags;
         document.getElementById("search-terms").appendChild(SearchBadge(item, dataType));
+        document.querySelector(`#${dataType}-search`).value = ""
       }
     });
 

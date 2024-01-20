@@ -1,6 +1,6 @@
 import searchTermsProxy from "../searchEngine/searchProxy.js";
 
-export default function mainTerms() {
+export default function mainSearch() {
   const mainSearch = document.getElementById("search-recipe");
   const resetSearch = document.getElementById("search-reset");
 
