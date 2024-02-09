@@ -40,7 +40,7 @@ function getSearchResult() {
   let appliancesResult = [];
   let ustensilsResult = [];
 
-  if (searchTerms.main.length > 0) {
+  if (searchTerms.main.length > 2) {
     mainResult = getMainResult(searchTerms.main);
   } else {
     mainResult = [];
@@ -76,7 +76,7 @@ function getSearchResult() {
 
   const filteredRecipes = getRecipesFromIds(commonIds);
 
-  if (!hasSearchTerm()) {
+  if (!hasSearchTerm() || (hasSearchTerm() && searchTerms.main.length < 3) ) {
     removeNotifNoResult()
     countRecipes(recipes);
     renderRecipes(recipes);
@@ -100,14 +100,14 @@ function getSearchResult() {
     renderRecipes(filteredRecipes);
   }
 
-  // console.clear()
-  // console.log('Résultats Main : ', mainResult);
-  // console.log('Résultats Ingredients : ', ingredientsResult);
-  // console.log('Résultats Appareils : ', appliancesResult);
-  // console.log('Résultats Ustensils : ', ustensilsResult);
-  // console.log("EN COMMUN :");
-  // console.log(commonIds);
-  // console.log(filteredRecipes);
+  console.clear()
+  console.log('Résultats Main : ', mainResult);
+  console.log('Résultats Ingredients : ', ingredientsResult);
+  console.log('Résultats Appareils : ', appliancesResult);
+  console.log('Résultats Ustensils : ', ustensilsResult);
+  console.log("EN COMMUN :");
+  console.log(commonIds);
+  console.log(filteredRecipes);
 }
 
 /**
