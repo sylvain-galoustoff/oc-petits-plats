@@ -76,7 +76,7 @@ function getSearchResult() {
 
   const filteredRecipes = getRecipesFromIds(commonIds);
 
-  if (!hasSearchTerm()) {
+  if (!hasSearchTerm() || (hasSearchTerm() && searchTerms.main.length < 3)) {
     removeNotifNoResult()
     countRecipes(recipes);
     renderRecipes(recipes);
